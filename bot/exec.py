@@ -16,7 +16,7 @@ class MyStreamListener(tweepy.StreamListener):
             index = stringl.index('!')
             ntexto = texto[index + 4::]
         else:
-            pass
+            ntexto = texto[4::]
         #reply
 
         print(status.text)
