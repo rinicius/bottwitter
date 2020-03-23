@@ -139,9 +139,19 @@ def acharfrasesemaprender():
 
     file1.close()
 
-    palavra = acharpalavra()
-    palavra = palavra.capitalize()
+    file2 = open('C:/Users/VINICIUSROCHADASILVA/Desktop/tweepy-bots/pdf/palavras.txt')
 
+    palavra = ''
+
+    """    npalavra = random.randint(1, 541)
+    for i in range(npalavra):
+        palavra = file2.readline()"""
+
+    palavra = file2.readlines()
+    palavra = random.choice(palavra)
+    palavra = list(palavra)
+    palavra.remove('\n')
+    palavra = ''.join(palavra)
     print(palavra)
     print(linha)
 
