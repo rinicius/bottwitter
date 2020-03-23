@@ -1,27 +1,22 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import tweepy
 from bot.authbot import getauth
 
 
 class MyStreamListener(tweepy.StreamListener):
 
-    def on_status(self, status):
-        from bot.authbot import login
+    def on_connect(self):
+        from bot.authbot import login, papagaio, acharfrase
+        import time
         api = login()
-        texto = status.text
 
-        #se for reply
-        ntexto = ''
-        if texto[0] == '@':
-            stringl = list(texto)
-            index = stringl.index('!')
-            ntexto = texto[index + 4::]
-        else:
-            ntexto = texto[4::]
-        #reply
+        #papagaio(api, status)
+        #print(status.text)
 
-        print(status.text)
-        api.update_status(ntexto)
-
+        while True:
+            api.update_status(acharfrase())
+            time.sleep(10)
         return True
 
     def on_error(self, status):
