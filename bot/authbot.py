@@ -93,13 +93,7 @@ def acharpalavra():
 
     lista.pop(0)
     listan = list()
-    """
-    palavra = random.choice(lista)
 
-    palavra = random.choice(lista)
-    while len(palavra) < 2:
-        palavra = random.choice(lista)
-    """
     for i in range(len(lista[0])):
         if i % 2 != 0:
             pass
@@ -109,15 +103,19 @@ def acharpalavra():
     return random.choice(listan)
 
 
-def acharfrase():
+def acharfraseaprender(palavra):
     file1 = open('C:/Users/VINICIUSROCHADASILVA/Desktop/tweepy-bots/pdf/frases.txt', encoding="utf-8")
 
     nlinha = random.randint(1, 541)
+
     for i in range(nlinha):
         linha = file1.readline()
+    file1.close()
 
-    palavra = acharpalavra()
-    palavra = palavra.capitalize()
+    f = open("C:/Users/VINICIUSROCHADASILVA/Desktop/tweepy-bots/pdf/palavras.txt", "a")
+    f.write(f'{palavra}\n')
+    f.close()
+
     print(palavra)
     print(linha)
 
@@ -131,6 +129,31 @@ def acharfrase():
 
     return linha
 
+
+def acharfrasesemaprender():
+    file1 = open('C:/Users/VINICIUSROCHADASILVA/Desktop/tweepy-bots/pdf/frases.txt', encoding="utf-8")
+
+    nlinha = random.randint(1, 541)
+    for i in range(nlinha):
+        linha = file1.readline()
+
+    file1.close()
+
+    palavra = acharpalavra()
+    palavra = palavra.capitalize()
+
+    print(palavra)
+    print(linha)
+
+    linha = linha.replace('Deus', palavra)
+    cont = 0
+    for i in linha:
+        if i == '-':
+            linha = linha[:cont:]
+        else:
+            cont += 1
+
+    return linha
 
 
 
