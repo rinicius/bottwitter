@@ -31,7 +31,7 @@ class MyStreamListener(tweepy.StreamListener):
         api = login()
         while True:
             api.update_status(acharfrasesemaprender())
-            time.sleep(120)
+            time.sleep(1320)
 
     def on_error(self, status):
         print(status)
